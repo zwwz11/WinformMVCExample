@@ -37,7 +37,7 @@ namespace WinformMVCExample.Controller
             }
             else
             {
-                MessageBox.Show("아이디 비밀번호를 확인해주세요");
+                view.ShowMessageBox("아이디 비밀번호를 확인해주세요");
             }
         }
     }

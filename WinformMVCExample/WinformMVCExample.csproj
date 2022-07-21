@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommonInterface\IMessageable.cs" />
     <Compile Include="Controller\UserListController.cs" />
     <Compile Include="Controller\LoginController.cs" />
     <Compile Include="Model\eUser.cs" />

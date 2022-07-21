@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WinformMVCExample.CommonInterface;
 using WinformMVCExample.Controller;
 using static WinformMVCExample.Model.eUser;
 
 namespace WinformMVCExample.View
 {
-    interface IUserListView
+    interface IUserListView : IMessageable
     {
         void SetController(UserListController controller);
         bool IsNew { get; set; }
@@ -20,6 +21,5 @@ namespace WinformMVCExample.View
         UserSex UserSex { get; set; }
 
         void LoadGridView();
-        void ShowMessageBox(string message);
     }
 }

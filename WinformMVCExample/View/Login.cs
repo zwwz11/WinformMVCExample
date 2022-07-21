@@ -24,17 +24,20 @@ namespace WinformMVCExample
         {
             InitializeComponent();
         }
-
         void ILoginView.SetController(LoginController controller)
         {
             this.controller = controller;
         }
+        public void ShowMessageBox(string message)
+        {
+            MessageBox.Show(message);
+        }
+
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
             this.controller.Login();
         }
-
         private void txtId_KeyUp(object sender, KeyEventArgs e)
         {
             if(e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
@@ -42,7 +45,6 @@ namespace WinformMVCExample
                 txtPw.Focus();
             }
         }
-
         private void txtPw_KeyUp(object sender, KeyEventArgs e)
         {
             if(e.KeyCode == Keys.Enter)
@@ -50,5 +52,6 @@ namespace WinformMVCExample
                 this.controller.Login();
             }
         }
+
     }
 }
