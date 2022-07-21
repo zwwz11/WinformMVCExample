@@ -20,8 +20,17 @@ namespace WinformMVCExample
             Application.SetCompatibleTextRenderingDefault(false);
 
             Login loginForm = new Login();
-            ViewController controller = new ViewController(loginForm);
-            Application.Run(loginForm);
+            LoginController controller = new LoginController(loginForm);
+            if(loginForm.ShowDialog() == DialogResult.OK)
+            {
+                UserList userListForm = new UserList();
+                UserListController userListController = new UserListController(userListForm);
+                Application.Run(userListForm);
+            }
+            else
+            {
+                Application.Exit();
+            }
         }
     }
 }

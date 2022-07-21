@@ -62,7 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\UserListController.cs" />
-    <Compile Include="Controller\ViewController.cs" />
+    <Compile Include="Controller\LoginController.cs" />
     <Compile Include="Model\eUser.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="View\ILoginView.cs" />

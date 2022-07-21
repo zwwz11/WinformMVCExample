@@ -11,6 +11,6 @@ namespace WinformMVCExample.View
     {
         string Id { get; set; }
         string Pw { get; set; }
-        void SetController(ViewController controller);
+        void SetController(LoginController controller);
     }
 }

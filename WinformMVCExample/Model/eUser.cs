@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WinformMVCExample.Model
 {
-    class eUser
+    public class eUser
     {
         public enum UserSex
         {

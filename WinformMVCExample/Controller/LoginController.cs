@@ -9,14 +9,14 @@ using WinformMVCExample.View;
 
 namespace WinformMVCExample.Controller
 {
-    class ViewController
+    class LoginController
     {
         private ILoginView view = null;
 
         private readonly string testId = "testid";
         private readonly string testPw = "test123";
 
-        public ViewController(ILoginView view)
+        public LoginController(ILoginView view)
         {
             this.view = view;
             view.SetController(this);
@@ -32,7 +32,8 @@ namespace WinformMVCExample.Controller
 
             if(this.view.Id == testId && this.view.Pw == testPw)
             {
-                MessageBox.Show("로그인 성공");
+                (this.view as Login).DialogResult = DialogResult.OK;
+                (this.view as Login).Close();
             }
             else
             {

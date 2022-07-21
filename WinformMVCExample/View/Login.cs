@@ -14,7 +14,7 @@ namespace WinformMVCExample
 {
     public partial class Login : Form, ILoginView
     {
-        ViewController controller;
+        LoginController controller;
 
         public string Id { get { return txtId.Text; } set { txtId.Text = value; } }
         public string Pw { get { return txtPw.Text; } set { txtPw.Text = value; } }
@@ -25,7 +25,7 @@ namespace WinformMVCExample
             InitializeComponent();
         }
 
-        void ILoginView.SetController(ViewController controller)
+        void ILoginView.SetController(LoginController controller)
         {
             this.controller = controller;
         }
@@ -35,5 +35,20 @@ namespace WinformMVCExample
             this.controller.Login();
         }
 
+        private void txtId_KeyUp(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
+            {
+                txtPw.Focus();
+            }
+        }
+
+        private void txtPw_KeyUp(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                this.controller.Login();
+            }
+        }
     }
 }
