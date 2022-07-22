@@ -9,9 +9,8 @@ using static WinformMVCExample.Model.eUser;
 
 namespace WinformMVCExample.View
 {
-    interface IUserListView : IMessageable
+    interface IUserListView : IMessageable, IControllerable
     {
-        void SetController(UserListController controller);
         bool IsNew { get; set; }
         string Id { get; set; }
         string Pw { get; set; }

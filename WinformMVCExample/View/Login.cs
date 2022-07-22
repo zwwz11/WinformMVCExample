@@ -4,9 +4,11 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinformMVCExample.CommonInterface;
 using WinformMVCExample.Controller;
 using WinformMVCExample.View;
 
@@ -24,9 +26,9 @@ namespace WinformMVCExample
         {
             InitializeComponent();
         }
-        void ILoginView.SetController(LoginController controller)
+        void IControllerable.SetController(IController controller)
         {
-            this.controller = controller;
+            this.controller = controller as LoginController;
         }
         public void ShowMessageBox(string message)
         {

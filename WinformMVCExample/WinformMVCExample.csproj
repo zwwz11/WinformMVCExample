@@ -61,6 +61,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\IController.cs" />
+    <Compile Include="CommonInterface\IControllerable.cs" />
     <Compile Include="CommonInterface\IMessageable.cs" />
     <Compile Include="Controller\UserListController.cs" />
     <Compile Include="Controller\LoginController.cs" />

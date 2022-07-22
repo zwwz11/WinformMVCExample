@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WinformMVCExample.CommonInterface;
 using WinformMVCExample.Model;
 using WinformMVCExample.View;
 
 namespace WinformMVCExample.Controller
 {
-    class UserListController
+    class UserListController : IController
     {
-        IUserListView view = null;
+        private IUserListView view = null;
         Dictionary<string, User> store = new Dictionary<string, User>();
         public Dictionary<string, User> Store { get { return store; } }
 

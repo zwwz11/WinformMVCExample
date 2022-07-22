@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinformMVCExample.CommonInterface;
 using WinformMVCExample.Controller;
 using WinformMVCExample.Model;
 using static WinformMVCExample.Model.eUser;
@@ -81,9 +82,9 @@ namespace WinformMVCExample.View
         {
             InitializeComponent();
         }
-        void IUserListView.SetController(UserListController controller)
+        void IControllerable.SetController(IController controller)
         {
-            this.controller = controller;
+            this.controller = controller as UserListController;
             this.controller.NewUser();
         }
         public void LoadGridView()

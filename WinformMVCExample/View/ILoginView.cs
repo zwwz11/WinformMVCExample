@@ -8,10 +8,9 @@ using WinformMVCExample.Controller;
 
 namespace WinformMVCExample.View
 {
-    interface ILoginView : IMessageable
+    interface ILoginView : IMessageable, IControllerable
     {
         string Id { get; set; }
         string Pw { get; set; }
-        void SetController(LoginController controller);
     }
 }

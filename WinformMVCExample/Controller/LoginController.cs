@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinformMVCExample.CommonInterface;
 using WinformMVCExample.Model;
 using WinformMVCExample.View;
 
 namespace WinformMVCExample.Controller
 {
-    class LoginController
+    class LoginController : IController
     {
         private ILoginView view = null;
 
