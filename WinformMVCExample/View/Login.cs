@@ -16,7 +16,7 @@ namespace WinformMVCExample
 {
     public partial class Login : Form, ILoginView
     {
-        LoginController controller;
+        private LoginController controller;
 
         public string Id { get { return txtId.Text; } set { txtId.Text = value; } }
         public string Pw { get { return txtPw.Text; } set { txtPw.Text = value; } }
