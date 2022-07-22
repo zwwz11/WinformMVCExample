@@ -44,6 +44,7 @@ namespace WinformMVCExample
 
                     if (userListForm.DialogResult == DialogResult.Retry)
                     {
+                        Application.Exit();
                         continue;
                     }
                     else
