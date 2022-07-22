@@ -13,32 +13,32 @@ namespace WinformMVCExample.Controller
     class LoginController : IController
     {
         private ILoginView view = null;
+        private Dictionary<string, User> store = null;
 
-        private readonly string testId = "testid";
-        private readonly string testPw = "test123";
-
-        public LoginController(ILoginView view)
+        public LoginController(ILoginView view, Dictionary<string, User> store)
         {
             this.view = view;
+            this.store = store;
             view.SetController(this);
         }
 
         public void Login()
         {
-            /*
-             * 유효성 테스트
-             * ID = testid
-             * PW = test123 
-             */
-
-            if(this.view.Id == testId && this.view.Pw == testPw)
+            if(store.ContainsKey(this.view.Id))
             {
-                (this.view as Login).DialogResult = DialogResult.OK;
-                (this.view as Login).Close();
+                if(this.view.Pw == store[this.view.Id].Pw)
+                {
+                    (this.view as Login).DialogResult = DialogResult.OK;
+                    (this.view as Login).Close();
+                }
+                else
+                {
+                    view.ShowMessageBox("비밀번호를 확인해주세요!");
+                }
             }
             else
             {
-                view.ShowMessageBox("아이디 비밀번호를 확인해주세요");
+                view.ShowMessageBox("존재하지 않는 아이디입니다!");
             }
         }
     }

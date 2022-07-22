@@ -76,6 +76,37 @@ namespace WinformMVCExample.View
                 }
             }
         }
+        public UserAuth UserAuth
+        {
+            get
+            {
+                UserAuth userAuth;
+                if (Enum.TryParse(cboUserAuth.Text, out userAuth))
+                {
+                    switch (userAuth)
+                    {
+                        case UserAuth.ADMIN:
+                            return UserAuth.ADMIN;
+                        case UserAuth.NORMAL:
+                            return UserAuth.NORMAL;
+                    }
+                }
+
+                return UserAuth.NORMAL;
+            }
+            set
+            {
+                UserAuth userAuth;
+                if (Enum.TryParse($"{value}", out userAuth))
+                {
+                    cboUserAuth.SelectedItem = userAuth.ToString();
+                }
+                else
+                {
+                    cboUserAuth.SelectedItem = UserAuth.NORMAL.ToString();
+                }
+            }
+        }
 
 
         public UserList()
@@ -86,6 +117,28 @@ namespace WinformMVCExample.View
         {
             this.controller = controller as UserListController;
             this.controller.NewUser();
+        }
+        public void InitControlByAuth(UserAuth userAuth)
+        {
+            if(userAuth == UserAuth.ADMIN)
+            {
+                gbUserInfo.Visible = true;
+                gbAction.Visible = true;
+            }
+            else if (userAuth == UserAuth.NORMAL)
+            {
+                gbUserInfo.Visible = false;
+                gbAction.Visible = false;
+            }
+        }
+        public void SetUserAuthComboBox()
+        {
+            cboUserAuth.Items.Clear();
+            foreach(UserAuth userAuth in Enum.GetValues(typeof(UserAuth)))
+            {
+                cboUserAuth.Items.Add(userAuth.ToString());
+            }
+            cboUserAuth.SelectedIndex = 0;
         }
         public void LoadGridView()
         {
@@ -98,6 +151,7 @@ namespace WinformMVCExample.View
                 item.SubItems.Add(user.Age.ToString());
                 item.SubItems.Add(user.Phone);
                 item.SubItems.Add(user.UserSex.ToString());
+                item.SubItems.Add(user.UserAuth.ToString());
                 lvUserList.Items.Add(item);
             }
         }
@@ -105,7 +159,11 @@ namespace WinformMVCExample.View
         {
             MessageBox.Show(message);
         }
-
+        public void CloseWithDialogResult(DialogResult dialogResult)
+        {
+            this.DialogResult = dialogResult;
+            this.Close();
+        }
 
 
         private void btnNew_Click(object sender, EventArgs e)
@@ -133,6 +191,10 @@ namespace WinformMVCExample.View
 
             this.controller.RemoveUser(lvUserList.SelectedItems[0].SubItems[0].Text);
         }
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            this.controller.Logout();
+        }
         private void rbtnUserSex_CheckedChanged(object sender, EventArgs e)
         {
             if(rbtnMale.Checked)
@@ -151,5 +213,6 @@ namespace WinformMVCExample.View
 
             this.controller.SelectedUserChanged(lvUserList.SelectedItems[0].SubItems[0].Text);
         }
+
     }
 }

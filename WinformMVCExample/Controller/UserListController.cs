@@ -12,13 +12,20 @@ namespace WinformMVCExample.Controller
     class UserListController : IController
     {
         private IUserListView view = null;
-        Dictionary<string, User> store = new Dictionary<string, User>();
+        User loginUser = null;
+        Dictionary<string, User> store = null;
         public Dictionary<string, User> Store { get { return store; } }
 
-        public UserListController(IUserListView view)
+        public UserListController(IUserListView view, Dictionary<string, User> store, User loginUser)
         {
             this.view = view;
+            this.loginUser = loginUser;
+            this.store = store;
+
             view.SetController(this);
+            view.SetUserAuthComboBox();
+            view.InitControlByAuth(loginUser.UserAuth);
+            view.LoadGridView();
         }
 
         public void RegisterUser()
@@ -35,7 +42,8 @@ namespace WinformMVCExample.Controller
                     UserName = view.UserName,
                     Age = view.Age,
                     UserSex = view.UserSex,
-                    Phone = view.Phone
+                    Phone = view.Phone,
+                    UserAuth = view.UserAuth
                 };
 
                 this.store.Add(user.Id, user);
@@ -85,6 +93,7 @@ namespace WinformMVCExample.Controller
             targetUser.Age = view.Age;
             targetUser.UserSex = view.UserSex;
             targetUser.Phone = view.Phone;
+            targetUser.UserAuth = view.UserAuth;
 
             view.IsNew = false;
             view.LoadGridView();
@@ -98,6 +107,11 @@ namespace WinformMVCExample.Controller
                 NewUser();
                 view.LoadGridView();
             }
+        }
+
+        public void Logout()
+        {
+            view.CloseWithDialogResult(System.Windows.Forms.DialogResult.Retry);
         }
 
     }

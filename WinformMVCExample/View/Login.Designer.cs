@@ -65,6 +65,7 @@
             // 
             this.txtPw.Location = new System.Drawing.Point(66, 56);
             this.txtPw.Name = "txtPw";
+            this.txtPw.PasswordChar = '●';
             this.txtPw.Size = new System.Drawing.Size(146, 21);
             this.txtPw.TabIndex = 3;
             this.txtPw.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtPw_KeyUp);

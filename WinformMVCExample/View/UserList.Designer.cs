@@ -29,7 +29,17 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lvUserList = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.gbUserInfo = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cboUserAuth = new System.Windows.Forms.ComboBox();
             this.rbtnFemale = new System.Windows.Forms.RadioButton();
             this.rbtnMale = new System.Windows.Forms.RadioButton();
             this.txtPhone = new System.Windows.Forms.TextBox();
@@ -42,60 +52,138 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.gbAction = new System.Windows.Forms.GroupBox();
             this.btnNew = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnRegister = new System.Windows.Forms.Button();
-            this.lvUserList = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.panelCRUD = new System.Windows.Forms.Panel();
+            this.btnLogout = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.gbUserInfo.SuspendLayout();
+            this.gbAction.SuspendLayout();
+            this.panelCRUD.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.lvUserList);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(648, 303);
+            this.groupBox1.Size = new System.Drawing.Size(649, 358);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "유저 목록";
             // 
-            // groupBox2
+            // lvUserList
             // 
-            this.groupBox2.Controls.Add(this.rbtnFemale);
-            this.groupBox2.Controls.Add(this.rbtnMale);
-            this.groupBox2.Controls.Add(this.txtPhone);
-            this.groupBox2.Controls.Add(this.txtAge);
-            this.groupBox2.Controls.Add(this.txtName);
-            this.groupBox2.Controls.Add(this.txtPw);
-            this.groupBox2.Controls.Add(this.txtId);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox2.Location = new System.Drawing.Point(648, 0);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(239, 209);
-            this.groupBox2.TabIndex = 2;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "유저 상세";
+            this.lvUserList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader6,
+            this.columnHeader5,
+            this.columnHeader7});
+            this.lvUserList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvUserList.Location = new System.Drawing.Point(3, 17);
+            this.lvUserList.Name = "lvUserList";
+            this.lvUserList.Size = new System.Drawing.Size(643, 338);
+            this.lvUserList.TabIndex = 1;
+            this.lvUserList.UseCompatibleStateImageBehavior = false;
+            this.lvUserList.View = System.Windows.Forms.View.Details;
+            this.lvUserList.SelectedIndexChanged += new System.EventHandler(this.lvUserList_SelectedIndexChanged);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "ID";
+            this.columnHeader1.Width = 75;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "PW";
+            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader2.Width = 87;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "이름";
+            this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader3.Width = 94;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "나이";
+            this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.DisplayIndex = 5;
+            this.columnHeader6.Text = "휴대폰";
+            this.columnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader6.Width = 156;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.DisplayIndex = 4;
+            this.columnHeader5.Text = "성별";
+            this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "권한";
+            this.columnHeader7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader7.Width = 84;
+            // 
+            // gbUserInfo
+            // 
+            this.gbUserInfo.Controls.Add(this.label6);
+            this.gbUserInfo.Controls.Add(this.cboUserAuth);
+            this.gbUserInfo.Controls.Add(this.rbtnFemale);
+            this.gbUserInfo.Controls.Add(this.rbtnMale);
+            this.gbUserInfo.Controls.Add(this.txtPhone);
+            this.gbUserInfo.Controls.Add(this.txtAge);
+            this.gbUserInfo.Controls.Add(this.txtName);
+            this.gbUserInfo.Controls.Add(this.txtPw);
+            this.gbUserInfo.Controls.Add(this.txtId);
+            this.gbUserInfo.Controls.Add(this.label4);
+            this.gbUserInfo.Controls.Add(this.label5);
+            this.gbUserInfo.Controls.Add(this.label3);
+            this.gbUserInfo.Controls.Add(this.label2);
+            this.gbUserInfo.Controls.Add(this.label1);
+            this.gbUserInfo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gbUserInfo.Location = new System.Drawing.Point(0, 0);
+            this.gbUserInfo.Name = "gbUserInfo";
+            this.gbUserInfo.Size = new System.Drawing.Size(238, 223);
+            this.gbUserInfo.TabIndex = 2;
+            this.gbUserInfo.TabStop = false;
+            this.gbUserInfo.Text = "유저 상세";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(23, 174);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(29, 12);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "권한";
+            // 
+            // cboUserAuth
+            // 
+            this.cboUserAuth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboUserAuth.FormattingEnabled = true;
+            this.cboUserAuth.Location = new System.Drawing.Point(58, 171);
+            this.cboUserAuth.Name = "cboUserAuth";
+            this.cboUserAuth.Size = new System.Drawing.Size(163, 20);
+            this.cboUserAuth.TabIndex = 12;
             // 
             // rbtnFemale
             // 
             this.rbtnFemale.AutoSize = true;
-            this.rbtnFemale.Location = new System.Drawing.Point(111, 181);
+            this.rbtnFemale.Location = new System.Drawing.Point(111, 198);
             this.rbtnFemale.Name = "rbtnFemale";
             this.rbtnFemale.Size = new System.Drawing.Size(47, 16);
             this.rbtnFemale.TabIndex = 11;
@@ -107,7 +195,7 @@
             // rbtnMale
             // 
             this.rbtnMale.AutoSize = true;
-            this.rbtnMale.Location = new System.Drawing.Point(58, 181);
+            this.rbtnMale.Location = new System.Drawing.Point(58, 198);
             this.rbtnMale.Name = "rbtnMale";
             this.rbtnMale.Size = new System.Drawing.Size(47, 16);
             this.rbtnMale.TabIndex = 10;
@@ -196,23 +284,23 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "ID";
             // 
-            // groupBox3
+            // gbAction
             // 
-            this.groupBox3.Controls.Add(this.btnNew);
-            this.groupBox3.Controls.Add(this.btnRemove);
-            this.groupBox3.Controls.Add(this.btnUpdate);
-            this.groupBox3.Controls.Add(this.btnRegister);
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.Location = new System.Drawing.Point(648, 209);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(239, 94);
-            this.groupBox3.TabIndex = 3;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Action";
+            this.gbAction.Controls.Add(this.btnNew);
+            this.gbAction.Controls.Add(this.btnRemove);
+            this.gbAction.Controls.Add(this.btnUpdate);
+            this.gbAction.Controls.Add(this.btnRegister);
+            this.gbAction.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gbAction.Location = new System.Drawing.Point(0, 223);
+            this.gbAction.Name = "gbAction";
+            this.gbAction.Size = new System.Drawing.Size(238, 88);
+            this.gbAction.TabIndex = 3;
+            this.gbAction.TabStop = false;
+            this.gbAction.Text = "Action";
             // 
             // btnNew
             // 
-            this.btnNew.Location = new System.Drawing.Point(24, 20);
+            this.btnNew.Location = new System.Drawing.Point(36, 20);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(75, 23);
             this.btnNew.TabIndex = 3;
@@ -222,7 +310,7 @@
             // 
             // btnRemove
             // 
-            this.btnRemove.Location = new System.Drawing.Point(128, 57);
+            this.btnRemove.Location = new System.Drawing.Point(124, 50);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(75, 23);
             this.btnRemove.TabIndex = 2;
@@ -232,7 +320,7 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(24, 57);
+            this.btnUpdate.Location = new System.Drawing.Point(36, 50);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 23);
             this.btnUpdate.TabIndex = 1;
@@ -242,7 +330,7 @@
             // 
             // btnRegister
             // 
-            this.btnRegister.Location = new System.Drawing.Point(128, 20);
+            this.btnRegister.Location = new System.Drawing.Point(124, 20);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(75, 23);
             this.btnRegister.TabIndex = 0;
@@ -250,62 +338,44 @@
             this.btnRegister.UseVisualStyleBackColor = true;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
-            // lvUserList
+            // panelCRUD
             // 
-            this.lvUserList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4,
-            this.columnHeader6,
-            this.columnHeader5});
-            this.lvUserList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvUserList.Location = new System.Drawing.Point(3, 17);
-            this.lvUserList.Name = "lvUserList";
-            this.lvUserList.Size = new System.Drawing.Size(642, 283);
-            this.lvUserList.TabIndex = 1;
-            this.lvUserList.UseCompatibleStateImageBehavior = false;
-            this.lvUserList.View = System.Windows.Forms.View.Details;
-            this.lvUserList.SelectedIndexChanged += new System.EventHandler(this.lvUserList_SelectedIndexChanged);
+            this.panelCRUD.Controls.Add(this.panel1);
+            this.panelCRUD.Controls.Add(this.gbAction);
+            this.panelCRUD.Controls.Add(this.gbUserInfo);
+            this.panelCRUD.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelCRUD.Location = new System.Drawing.Point(649, 0);
+            this.panelCRUD.Name = "panelCRUD";
+            this.panelCRUD.Size = new System.Drawing.Size(238, 358);
+            this.panelCRUD.TabIndex = 12;
             // 
-            // columnHeader1
+            // btnLogout
             // 
-            this.columnHeader1.Text = "ID";
-            this.columnHeader1.Width = 75;
+            this.btnLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLogout.Location = new System.Drawing.Point(124, 6);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(111, 35);
+            this.btnLogout.TabIndex = 4;
+            this.btnLogout.Text = "로그아웃";
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // columnHeader2
+            // panel1
             // 
-            this.columnHeader2.Text = "PW";
-            this.columnHeader2.Width = 87;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "이름";
-            this.columnHeader3.Width = 94;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "나이";
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.DisplayIndex = 4;
-            this.columnHeader5.Text = "성별";
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.DisplayIndex = 5;
-            this.columnHeader6.Text = "휴대폰";
-            this.columnHeader6.Width = 222;
+            this.panel1.Controls.Add(this.btnLogout);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 311);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(238, 47);
+            this.panel1.TabIndex = 4;
             // 
             // UserList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(887, 303);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
+            this.ClientSize = new System.Drawing.Size(887, 358);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.panelCRUD);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -313,20 +383,22 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UserList";
             this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
+            this.gbUserInfo.ResumeLayout(false);
+            this.gbUserInfo.PerformLayout();
+            this.gbAction.ResumeLayout(false);
+            this.panelCRUD.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox gbUserInfo;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox gbAction;
         private System.Windows.Forms.RadioButton rbtnFemale;
         private System.Windows.Forms.RadioButton rbtnMale;
         private System.Windows.Forms.TextBox txtPhone;
@@ -347,5 +419,11 @@
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.Panel panelCRUD;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cboUserAuth;
+        private System.Windows.Forms.Button btnLogout;
+        private System.Windows.Forms.Panel panel1;
     }
 }

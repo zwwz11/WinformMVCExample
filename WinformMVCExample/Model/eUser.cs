@@ -13,5 +13,11 @@ namespace WinformMVCExample.Model
             MALE,
             FEMALE
         }
+
+        public enum UserAuth
+        {
+            ADMIN,
+            NORMAL
+        }
     }
 }
